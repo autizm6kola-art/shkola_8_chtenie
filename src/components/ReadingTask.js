@@ -68,8 +68,8 @@ export default function ReadingTask({ task }) {
   const highlightedIndexesRef =
     useRef([]);
 
-  const mediaRecorderRef =
-    useRef(null);
+  // const mediaRecorderRef =
+  //   useRef(null);
 
   const recordedChunks =
     useRef([]);
