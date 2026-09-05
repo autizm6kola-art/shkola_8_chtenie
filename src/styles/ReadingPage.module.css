@@ -40,7 +40,7 @@
 .completed {
   background-color: #c8f7c5;  /* мягкий зелёный фон */
   border-left: 6px solid #3cb371;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.03s ease;
 }
 
 
@@ -80,7 +80,7 @@
   border-radius: 50px;
   cursor: pointer;
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.03s ease;
   margin-left: 10px;
 }
 
