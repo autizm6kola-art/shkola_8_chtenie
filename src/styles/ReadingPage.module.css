@@ -111,6 +111,31 @@
   padding: 1x 5px 1px 5px;
 }
 
+/* Оранжевое: прямо сейчас говорит */
+.activeWord {
+  color: white;
+  background-color: #ff8c00; /* тёплый оранжевый */
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Серое: нажимал, но не распозналось */
+.visitedWord {
+  color: #ff0000;
+  background-color: #915050; /* спокойный серый */
+  padding: 2px 6px;
+  border-radius: 6px;
+  opacity: 0.9;
+}
+
+/* Если хочешь, чтобы серый был чуть прозрачнее, чем обычный текст */
+.visitedWord:hover {
+  cursor: default;
+  background-color: #915050;
+  opacity: 1;
+}
+
 
 
 @media (max-width: 480px) {

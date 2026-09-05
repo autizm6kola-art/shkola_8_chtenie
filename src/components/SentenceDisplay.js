@@ -1,53 +1,39 @@
+// 
+
 import React from "react";
 
 import styles from "../styles/SentenceDisplay.module.css";
-
 
 // ======================================================
 // 🔊 Озвучка слова
 // ======================================================
 
 function speakWord(word) {
-
-  // Останавливаем предыдущую озвучку
   speechSynthesis.cancel();
 
-  const utterance =
-    new SpeechSynthesisUtterance(word);
+  const utterance = new SpeechSynthesisUtterance(word);
 
   utterance.lang = "ru-RU";
-
-  // Немного медленнее
-  // для людей с речевыми трудностями
-
   utterance.rate = 0.85;
-
   utterance.pitch = 1;
-
   utterance.volume = 1;
 
   speechSynthesis.speak(utterance);
 }
-
 
 // ======================================================
 // SentenceDisplay
 // ======================================================
 
 export default function SentenceDisplay({
-
   content,
-
   paragraphs,
-
   highlightedIndexes,
-
   onWordListen,
-
-  activeWordIndex
-
+  activeWordIndex,
+  visitedButNotRecognized = [],
+  isLocked = false
 }) {
-
 
   // ====================================================
   // Если paragraphs ещё не передан,
@@ -67,27 +53,23 @@ export default function SentenceDisplay({
           // ============================================
 
           if (item.type !== "word") {
-
             return (
               <span key={index}>
                 {item.word}
               </span>
             );
-
           }
-
 
           // ============================================
           // Состояние слова
           // ============================================
 
-          const isHighlighted =
-            highlightedIndexes.includes(index);
-
-          const isActive =
-            activeWordIndex === index &&
-            !isHighlighted;
-
+          const isHighlighted = highlightedIndexes.includes(index);
+          const isActive = activeWordIndex === index && !isHighlighted;
+          const isVisited =
+            visitedButNotRecognized.includes(index) &&
+            !isHighlighted &&
+            !isActive;
 
           return (
 
@@ -100,44 +82,36 @@ export default function SentenceDisplay({
 
               <button
                 className={styles.listenButton}
-                onClick={() =>
-                  speakWord(item.word)
-                }
+                onClick={() => speakWord(item.word)}
                 title="Прослушать слово"
               >
                 👂
               </button>
-
 
               {/* СЛОВО */}
 
               <span
                 className={`
                   ${styles.word}
-
-                  ${isHighlighted
-                    ? styles.highlighted
-                    : ""
-                  }
-
-                  ${isActive
-                    ? styles.active
-                    : ""
-                  }
+                  ${isHighlighted ? styles.highlighted : ""}
+                  ${isActive ? styles.active : ""}
+                  ${isVisited ? styles.visited : ""}
                 `}
               >
                 {item.word}
               </span>
 
-
               {/* 🎤 ПРОЧИТАТЬ СЛОВО */}
 
               <button
                 className={styles.miniMic}
-                onClick={() =>
-                  onWordListen(index)
-                }
+                onClick={() => onWordListen(index)}
+                disabled={isLocked}
                 title="Прочитать слово"
+                style={{
+                  opacity: isLocked ? 0.4 : 1,
+                  cursor: isLocked ? "not-allowed" : "pointer"
+                }}
               >
                 🎤
               </button>
@@ -154,129 +128,109 @@ export default function SentenceDisplay({
 
   }
 
-
   // ====================================================
-  // НОВЫЙ ВАРИАНТ С АБЗАЦАМИ
+  // ВАРИАНТ С АБЗАЦАМИ
   // ====================================================
 
   let globalIndex = 0;
-
 
   return (
 
     <div className={styles.wrapper}>
 
-      {paragraphs.map(
-        (paragraph, paragraphIndex) => {
+      {paragraphs.map((paragraph, paragraphIndex) => {
 
-          return (
+        return (
 
-            <div
-              key={paragraphIndex}
-              className={styles.paragraph}
-            >
+          <div
+            key={paragraphIndex}
+            className={styles.paragraph}
+          >
 
-              {paragraph.map((item) => {
+            {paragraph.map((item) => {
 
-                const index = globalIndex;
+              const index = globalIndex;
+              globalIndex++;
 
-                globalIndex++;
+              // ======================================
+              // Пунктуация
+              // ======================================
 
-
-                // ======================================
-                // Пунктуация
-                // ======================================
-
-                if (item.type !== "word") {
-
-                  return (
-
-                    <span key={index}>
-                      {item.word}
-                    </span>
-
-                  );
-
-                }
-
-
-                // ======================================
-                // Состояние слова
-                // ======================================
-
-                const isHighlighted =
-                  highlightedIndexes.includes(index);
-
-                const isActive =
-                  activeWordIndex === index &&
-                  !isHighlighted;
-
-
+              if (item.type !== "word") {
                 return (
+                  <span key={index}>
+                    {item.word}
+                  </span>
+                );
+              }
+
+              // ======================================
+              // Состояние слова
+              // ======================================
+
+              const isHighlighted = highlightedIndexes.includes(index);
+              const isActive = activeWordIndex === index && !isHighlighted;
+              const isVisited =
+                visitedButNotRecognized.includes(index) &&
+                !isHighlighted &&
+                !isActive;
+
+              return (
+
+                <span
+                  key={index}
+                  className={styles.wordBlock}
+                >
+
+                  {/* 👂 СЛУШАТЬ СЛОВО */}
+
+                  <button
+                    className={styles.listenButton}
+                    onClick={() => speakWord(item.word)}
+                    title="Прослушать слово"
+                  >
+                    👂
+                  </button>
+
+                  {/* СЛОВО */}
 
                   <span
-                    key={index}
-                    className={styles.wordBlock}
+                    className={`
+                      ${styles.word}
+                      ${isHighlighted ? styles.highlighted : ""}
+                      ${isActive ? styles.active : ""}
+                      ${isVisited ? styles.visited : ""}
+                    `}
                   >
-
-                    {/* 👂 СЛУШАТЬ СЛОВО */}
-
-                    <button
-                      className={styles.listenButton}
-                      onClick={() =>
-                        speakWord(item.word)
-                      }
-                      title="Прослушать слово"
-                    >
-                      👂
-                    </button>
-
-
-                    {/* СЛОВО */}
-
-                    <span
-                      className={`
-                        ${styles.word}
-
-                        ${isHighlighted
-                          ? styles.highlighted
-                          : ""
-                        }
-
-                        ${isActive
-                          ? styles.active
-                          : ""
-                        }
-                      `}
-                    >
-                      {item.word}
-                    </span>
-
-
-                    {/* 🎤 ПРОЧИТАТЬ СЛОВО */}
-
-                    <button
-                      className={styles.miniMic}
-                      onClick={() =>
-                        onWordListen(index)
-                      }
-                      title="Прочитать слово"
-                    >
-                      🎤
-                    </button>
-
+                    {item.word}
                   </span>
 
-                );
+                  {/* 🎤 ПРОЧИТАТЬ СЛОВО */}
 
-              })}
+                  <button
+                    className={styles.miniMic}
+                    onClick={() => onWordListen(index)}
+                    disabled={isLocked}
+                    title="Прочитать слово"
+                    style={{
+                      opacity: isLocked ? 0.4 : 1,
+                      cursor: isLocked ? "not-allowed" : "pointer"
+                    }}
+                  >
+                    🎤
+                  </button>
 
-            </div>
+                </span>
 
-          );
+              );
 
-        }
-      )}
+            })}
+
+          </div>
+
+        );
+
+      })}
 
     </div>
 
