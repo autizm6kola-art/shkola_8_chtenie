@@ -1,0 +1,135 @@
+.menu-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px 20px;
+  position: relative;
+}
+
+
+.menu-title {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #292929;
+}
+
+
+.menu-progress-text {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #292929;
+}
+
+
+/* ======================================================
+   СПИСОК ПАРАГРАФОВ
+   ====================================================== */
+
+.range-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+
+/* ======================================================
+   КНОПКА ПАРАГРАФА
+   ====================================================== */
+
+.range-button {
+  border-radius: 10px;
+  border: none;
+
+  min-height: 48px;
+
+  width: 100%;
+
+  padding: 8px 15px;
+
+  background-color: lightgray;
+
+  font-size: 18px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.1s ease,
+    filter 0.1s ease;
+}
+
+
+.range-button:hover {
+  filter: brightness(0.97);
+}
+
+
+.range-button:active {
+  transform: scale(0.99);
+}
+
+
+/* ======================================================
+   ГОТОВО
+   ====================================================== */
+
+.range-button.completed {
+  background-color: green;
+  color: white;
+}
+
+
+/* ======================================================
+   ЧАСТИЧНО ПРОЧИТАНО
+   ====================================================== */
+
+.range-button.partial {
+  background-color: rgba(240, 216, 80, 0.546);
+  color: black;
+}
+
+
+/* ======================================================
+   КНОПКА СБРОСА
+   ====================================================== */
+
+.reset-button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ======================================================
+   МОБИЛЬНЫЙ ЭКРАН
+   ====================================================== */
+
+@media (max-width: 600px) {
+
+  .menu-container {
+    padding: 30px 12px;
+  }
+
+  .menu-title {
+    font-size: 22px;
+  }
+
+  .range-button {
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+}

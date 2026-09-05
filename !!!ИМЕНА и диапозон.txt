@@ -1,0 +1,10 @@
+Важно менять имена в 
+1. storage.js
+2. BackupControls.js
+3. DailyProgress.js
+4. ReadingTask.js
+5. package.json
+
+
+
+

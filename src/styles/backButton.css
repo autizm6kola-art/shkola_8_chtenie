@@ -1,0 +1,38 @@
+.back-button {
+  background-color: #c4f7d7;
+  color: #029a3c;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #d0ffe8;
+}
+
+.back-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #d2d4d5;
+  color: #474747;
+  text-decoration: none;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.back-link:hover {
+  background-color: #979898;
+}

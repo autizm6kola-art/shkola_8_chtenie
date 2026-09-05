@@ -1,0 +1,133 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+}
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.task-item {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+.back-button {
+  background-color: #c4f7d7;
+  color: #029a3c;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #d0ffe8;
+}
+
+.back-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #d2d4d5;
+  color: #474747;
+  text-decoration: none;
+  border: none;
+  border-radius: 12px;
+  
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.back-link:hover {
+  background-color: #979898;
+}
+
+.range-button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.range-button:hover {
+  background-color: #d0d0d0;
+}
+
+.range-button.completed {
+  background-color: #a0e7a0; /* зелёный */
+  font-weight: bold;
+}
+
+.range-button.partial {
+  background-color: #ffe680; /* жёлтый */
+  font-weight: bold;
+}
+
+.menu-container {
+  max-width: 600px;
+  margin: 60px auto 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .menu-container {
+    padding: 10px;
+    margin: 30px auto;
+  }
+
+  .range-button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 18px;
+  }
+}
+
+
+.task-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 20px 20px;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  .task-container {
+    padding: 40px 12px 20px;
+  }
+
+  .task-container h1 {
+    font-size: 20px;
+    margin: 30px 0 10px 0;
+    text-align: center;
+  }
+
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .task-item {
+    font-size: 16px;
+  }
+
+  .back-link {
+    position: static;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+}

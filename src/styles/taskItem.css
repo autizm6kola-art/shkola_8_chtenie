@@ -1,0 +1,187 @@
+/* .task-item {
+  /* если нужно, можно сюда добавить отступы и фоновый цвет */
+/* } */ 
+
+.task-item input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  /* transition: background-color 0.3s ease; */
+}
+
+.task-item input.correct {
+  background-color: #c8f7c5; /* светло-зеленый */
+  border-color: #4caf50;
+}
+
+.task-item input.incorrect {
+  background-color: #f7c5c5; /* светло-красный */
+  border-color: #e53935;
+}
+
+.check-button {
+  border-radius: 4px;
+  padding: 6px 12px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #2196f3;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.check-button:disabled {
+  background-color: #90caf9;
+  cursor: default;
+}
+
+.check-button:not(:disabled):hover {
+  background-color: #1976d2;
+}
+
+
+
+.answer-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.answer-button {
+  padding: 14px 24px;
+  border-radius: 20px;
+  border: none;
+  background-color: #e0e0e0;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.answer-button:hover:not(:disabled) {
+  background-color: #d5d5d5;
+}
+
+.answer-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.answer-button.correct {
+  background-color: #4caf50 !important;
+  color: white;
+}
+
+.answer-button.incorrect {
+  background-color: #e53935 !important;
+  color: white;
+}
+
+.task-item audio {
+  width: 100%;
+  max-width: 100%;
+  height: 40px; /* или авто — по вкусу */
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.option-button {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-size: 16px;
+}
+
+.option-button.correct {
+  background-color: #2ecc71; /* зеленый */
+  color: white;
+  border-color: #27ae60;
+  cursor: default;
+}
+
+.option-button.incorrect {
+  background-color: #e74c3c; /* красный */
+  color: white;
+  border-color: #c0392b;
+  cursor: default;
+}
+
+.option-button:disabled {
+  cursor: default;
+}
+
+.input-correct {
+  border: 2px solid green;
+  background-color: #e0ffe0;
+}
+
+.input-wrong {
+  border: 2px solid red;
+  background-color: #ffe0e0;
+}
+
+input {
+  width: 22px;
+  height: 10px;
+  margin: 0 0px;
+  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+ 
+  
+}
+
+.text-block {
+  line-height: 1.8;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button-proverit {
+  background-color: #cfcece;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #4c4b4b;
+}
+
+.reset-button-contaner {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+@media (max-width: 700px) {
+  .task-container {
+    padding: 30px 12px;
+  }
+  
+  .task-grid {
+    grid-template-columns: 1fr; /* Меняем сетку на один столбец */
+  }
+  
+  .task-back-button {
+    left: 20px; /* Перемещаем кнопку назад, чтобы не вылезала за экран */
+    top: 20px;
+    position: fixed; /* Можно сделать фиксированной, чтобы всегда была видна */
+  }
+  
+  .task-heading {
+    margin: 20px 10px 10px 10px; /* Чтобы заголовок подстроился под узкий экран */
+    font-size: 1.2em;
+  }
+}
+
+

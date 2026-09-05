@@ -1,0 +1,67 @@
+1️⃣ Подготовка репозитория
+•	Создать репозиторий на GitHub.
+•	Локально в папке проекта:
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main   # главная ветка main
+git remote add origin https://github.com/autizm6kola-art/gruffalo_doch.git
+git push -u origin main
+________________________________________
+2️⃣ Настройка package.json
+"homepage": "https://ТВОЙ_ЛОГИН.github.io/ИМЯ_РЕПО/"
+Добавить скрипты:
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
+  ...
+}
+________________________________________
+3️⃣ Создание workflow для GitHub Actions
+•	Папка: .github/workflows/
+•	Файл: deploy.yml
+Содержимое deploy.yml:
+name: Deploy React App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: npm run build
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+⚠️ Проверить версию peaceiris/actions-gh-pages@v6, чтобы не было ошибок.
+________________________________________
+4️⃣ Галочки и разрешения на GitHub
+Settings → Actions → General → Workflow permissions:
+•	✅ Read and write permissions
+•	✅ Allow GitHub Actions to create and approve pull requests (по желанию)
+________________________________________
+5️⃣ Публикация
+•	Добавить и закоммитить изменения workflow и package.json:
+git add .
+git commit -m "Setup GitHub Pages deployment"
+git push origin main
+•	Workflow создаст ветку gh-pages и задеплоит сайт.
+•	Сайт будет доступен:
+https://ТВОЙ_ЛОГИН.github.io/ИМЯ_РЕПО/
+________________________________________
+6️⃣ Важные заметки
+•	Менять префикс в localStorage для каждого нового приложения.
+•	Если ESLint фейлится при деплое (CI=true), можно временно поставить CI=false.
+•	Проверять версии Actions (peaceiris/actions-gh-pages).
+•	Workflow создаёт ветку gh-pages автоматически, ручное создание не нужно.
+
