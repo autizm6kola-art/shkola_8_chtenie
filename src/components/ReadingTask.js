@@ -317,53 +317,53 @@ export default function ReadingTask({ task }) {
   // 🔴 RECORDING
   // ======================================================
 
-  const startRecording = async () => {
+  // const startRecording = async () => {
 
-    recordedChunks.current = [];
+  //   recordedChunks.current = [];
 
-    try {
+  //   try {
 
-      const stream =
-        await navigator.mediaDevices
-          .getUserMedia({
-            audio: true
-          });
+  //     const stream =
+  //       await navigator.mediaDevices
+  //         .getUserMedia({
+  //           audio: true
+  //         });
 
-      const mediaRecorder =
-        new MediaRecorder(stream);
+  //     const mediaRecorder =
+  //       new MediaRecorder(stream);
 
-      mediaRecorderRef.current =
-        mediaRecorder;
+  //     mediaRecorderRef.current =
+  //       mediaRecorder;
 
-      mediaRecorder.ondataavailable =
-        (event) => {
+  //     mediaRecorder.ondataavailable =
+  //       (event) => {
 
-          if (event.data.size > 0) {
+  //         if (event.data.size > 0) {
 
-            recordedChunks.current
-              .push(event.data);
-          }
-        };
+  //           recordedChunks.current
+  //             .push(event.data);
+  //         }
+  //       };
 
-      mediaRecorder.start();
+  //     mediaRecorder.start();
 
-    } catch (err) {
+  //   } catch (err) {
 
-      console.error(err);
+  //     console.error(err);
 
-      alert(
-        "Нет доступа к микрофону"
-      );
-    }
-  };
+  //     alert(
+  //       "Нет доступа к микрофону"
+  //     );
+  //   }
+  // };
 
-  const stopRecording = () => {
+  // const stopRecording = () => {
 
-    if (mediaRecorderRef.current) {
+  //   if (mediaRecorderRef.current) {
 
-      mediaRecorderRef.current.stop();
-    }
-  };
+  //     mediaRecorderRef.current.stop();
+  //   }
+  // };
 
   // ======================================================
   // ▶️ START
