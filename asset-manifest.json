@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/shkola_8_chtenie/static/css/main.650cf549.css",
-    "main.js": "/shkola_8_chtenie/static/js/main.0e2b0f84.js",
+    "main.css": "/shkola_8_chtenie/static/css/main.25f27447.css",
+    "main.js": "/shkola_8_chtenie/static/js/main.49de8d44.js",
     "static/js/453.d37bcb50.chunk.js": "/shkola_8_chtenie/static/js/453.d37bcb50.chunk.js",
     "index.html": "/shkola_8_chtenie/index.html",
-    "main.650cf549.css.map": "/shkola_8_chtenie/static/css/main.650cf549.css.map",
-    "main.0e2b0f84.js.map": "/shkola_8_chtenie/static/js/main.0e2b0f84.js.map",
+    "main.25f27447.css.map": "/shkola_8_chtenie/static/css/main.25f27447.css.map",
+    "main.49de8d44.js.map": "/shkola_8_chtenie/static/js/main.49de8d44.js.map",
     "453.d37bcb50.chunk.js.map": "/shkola_8_chtenie/static/js/453.d37bcb50.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.650cf549.css",
-    "static/js/main.0e2b0f84.js"
+    "static/css/main.25f27447.css",
+    "static/js/main.49de8d44.js"
   ]
 }
