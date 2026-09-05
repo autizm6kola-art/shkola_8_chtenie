@@ -71,8 +71,8 @@ export default function ReadingTask({ task }) {
   // const mediaRecorderRef =
   //   useRef(null);
 
-  const recordedChunks =
-    useRef([]);
+  // const recordedChunks =
+  //   useRef([]);
 
   // ======================================================
   // CONTENT
