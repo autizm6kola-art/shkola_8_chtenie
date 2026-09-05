@@ -265,79 +265,53 @@ export default function ReadingTask({ task }) {
   // 🎤 СОЗДАЁМ recognizer ОДИН РАЗ
   // ======================================================
 
-  // useEffect(() => {
-
-  //   if (!recognizerRef.current) {
-
-  //     recognizerRef.current =
-  //       createSpeechRecognizer({
-
-  //         onResult: (transcript) => {
-
-  //           handleResult(transcript);
-  //         },
-
-  //         onEnd: () => {
-
-  //           // 👇 если listening ещё активно —
-  //           // автоматически перезапускаем session
-
-  //           if (isListening) {
-
-  //             try {
-
-  //               recognizerRef.current?.start();
-
-  //             } catch (e) {
-
-  //               console.log(
-  //                 "restart blocked"
-  //               );
-  //             }
-  //           }
-  //         }
-  //       });
-  //   }
-
-  //   // cleanup только при уходе
-  //   // со страницы
-
-  //   return () => {
-
-  //     try {
-
-  //       recognizerRef.current?.stop();
-
-  //     } catch (e) {}
-  //   };
-
-  // }, []);
-
   useEffect(() => {
-  if (!recognizerRef.current) {
-    recognizerRef.current = createSpeechRecognizer({
-      onResult: (transcript) => {
-        handleResult(transcript);
-      },
-      onEnd: () => {
-        if (isListening) {
-          try {
-            recognizerRef.current?.start();
-          } catch (e) {
-            console.log("restart blocked");
+
+    if (!recognizerRef.current) {
+
+      recognizerRef.current =
+        createSpeechRecognizer({
+
+          onResult: (transcript) => {
+
+            handleResult(transcript);
+          },
+
+          onEnd: () => {
+
+            // 👇 если listening ещё активно —
+            // автоматически перезапускаем session
+
+            if (isListening) {
+
+              try {
+
+                recognizerRef.current?.start();
+
+              } catch (e) {
+
+                console.log(
+                  "restart blocked"
+                );
+              }
+            }
           }
-        }
-      }
-    });
-  }
+        });
+    }
 
-  return () => {
-    try {
-      recognizerRef.current?.stop();
-    } catch (e) {}
-  };
-}, [handleResult, isListening]); // <-- вот это исправляет ошибку
+    // cleanup только при уходе
+    // со страницы
 
+    return () => {
+
+      try {
+
+        recognizerRef.current?.stop();
+
+      } catch (e) {}
+    };
+
+  }, []);
 
   // ======================================================
   // 🔴 RECORDING
