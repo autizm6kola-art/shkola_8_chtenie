@@ -369,48 +369,48 @@ export default function ReadingTask({ task }) {
   // ▶️ START
   // ======================================================
 
-  const handleStart = () => {
+  // const handleStart = () => {
 
-    setIsStopped(false);
+  //   setIsStopped(false);
 
-    setActiveWordIndex(null);
+  //   setActiveWordIndex(null);
 
-    setIsListening(true);
+  //   setIsListening(true);
 
-    startRecording();
+  //   startRecording();
 
-    try {
+  //   try {
 
-      recognizerRef.current?.start();
+  //     recognizerRef.current?.start();
 
-    } catch (e) {
+  //   } catch (e) {
 
-      console.log(
-        "already started"
-      );
-    }
-  };
+  //     console.log(
+  //       "already started"
+  //     );
+  //   }
+  // };
 
   // ======================================================
   // ⏹ STOP
   // ======================================================
 
-  const handleStop = () => {
+  // const handleStop = () => {
 
-    setIsListening(false);
+  //   setIsListening(false);
 
-    setIsStopped(true);
+  //   setIsStopped(true);
 
-    setActiveWordIndex(null);
+  //   setActiveWordIndex(null);
 
-    stopRecording();
+  //   stopRecording();
 
-    try {
+  //   try {
 
-      recognizerRef.current?.stop();
+  //     recognizerRef.current?.stop();
 
-    } catch (e) {}
-  };
+  //   } catch (e) {}
+  // };
 
   // ======================================================
   // 🎤 ДОЧИТАТЬ ОДНО СЛОВО
