@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/shkola_8_chtenie/static/css/main.8d2cf0fe.css",
-    "main.js": "/shkola_8_chtenie/static/js/main.9c5356b9.js",
+    "main.css": "/shkola_8_chtenie/static/css/main.1b46823d.css",
+    "main.js": "/shkola_8_chtenie/static/js/main.d2f4e0c5.js",
     "static/js/453.d37bcb50.chunk.js": "/shkola_8_chtenie/static/js/453.d37bcb50.chunk.js",
     "index.html": "/shkola_8_chtenie/index.html",
-    "main.8d2cf0fe.css.map": "/shkola_8_chtenie/static/css/main.8d2cf0fe.css.map",
-    "main.9c5356b9.js.map": "/shkola_8_chtenie/static/js/main.9c5356b9.js.map",
+    "main.1b46823d.css.map": "/shkola_8_chtenie/static/css/main.1b46823d.css.map",
+    "main.d2f4e0c5.js.map": "/shkola_8_chtenie/static/js/main.d2f4e0c5.js.map",
     "453.d37bcb50.chunk.js.map": "/shkola_8_chtenie/static/js/453.d37bcb50.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8d2cf0fe.css",
-    "static/js/main.9c5356b9.js"
+    "static/css/main.1b46823d.css",
+    "static/js/main.d2f4e0c5.js"
   ]
 }
