@@ -187,7 +187,11 @@ function MenuPage({ allTasks, onSelectRange }) {
               </span>
 
               <span>
-                ({progressPercent}%)
+                . ({progress.total} сл.
+              </span>
+
+              <span>
+                , {progressPercent}%)
               </span>
 
             </button>

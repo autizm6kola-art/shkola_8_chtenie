@@ -5,7 +5,7 @@ git init
 git add .
 git commit -m "Initial commit"
 git branch -M main   # главная ветка main
-git remote add origin https://github.com/autizm6kola-art/gruffalo_doch.git
+git remote add origin https://github.com/autizm6kola-art/shkola_8_chtenie.git
 git push -u origin main
 ________________________________________
 2️⃣ Настройка package.json
